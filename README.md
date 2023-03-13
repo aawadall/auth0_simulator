@@ -2,9 +2,9 @@
 an attempt to simulate Auth0 in a local environment
 
 ## plan
-- [ ] Create a simple express server
-- [ ] register the server with Auth0
-- [ ] test the server with Auth0
+- [x] Create a simple express server
+- [x] register the server with Auth0
+- [x] test the server with Auth0
 - [ ] create logging api app; logging the following:
     - url
     - method
