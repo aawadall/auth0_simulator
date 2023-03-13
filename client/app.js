@@ -1,7 +1,7 @@
 // application entry point for client
 
 // dependencies
-const dotenv = require('dotenv');
+
 const express = require('express');
 const http = require('http');
 const logger = require('morgan');
@@ -12,7 +12,7 @@ const { auth } = require('express-openid-connect');
 const indexRouter = require('./routes/index');
 
 // housekeeping
-dotenv.load();
+
 const app = express();
 
 // view engine setup
@@ -27,7 +27,12 @@ app.use(express.json());
 const config = {
     authRequired: false,
     auth0Logout: true,
+    secret: process.env.AUTH0_CLIENT_SECRET,
+    baseURL: process.env.BASE_URL,
+    clientID: process.env.AUTH0_CLIENT_ID,
+    issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL
 };
+
 
 const port = process.env.PORT || 3000;
 if(!config.baseURL && !process.env.BASE_URL && process.env.PORT && process.env.NODE_ENV !== 'production') {
