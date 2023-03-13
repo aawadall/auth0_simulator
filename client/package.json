@@ -1,0 +1,11 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "mock auth0 client",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "",
+  "license": "ISC"
+}
