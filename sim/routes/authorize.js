@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const controller = require('../controllers/authorizeController');
 
-// /autghorize
+// /authorize
 
 router.get('/', controller.authorize);
 

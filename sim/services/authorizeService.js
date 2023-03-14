@@ -25,9 +25,11 @@
 const authorize = (client_id, scope, response_type, redirect_uri, response_mode, nonce, state) => {
     const response = {};
 
+    
+
     response.code = 302;
     response.headers = {
-        Location: redirect_uri
+        Location: `${redirect_uri}?code=${makeCode()}&state=${state}`
     };
 
     return response;
@@ -35,4 +37,8 @@ const authorize = (client_id, scope, response_type, redirect_uri, response_mode,
 
 module.exports = {
     authorize
+}
+
+const makeCode = () => {
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 }
