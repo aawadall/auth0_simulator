@@ -10,6 +10,10 @@ const profileEmail = (req, res) => {
         "email": makeEmail()
     };
 
+    console.log('Sending response: ')
+    console.log(`response.code: ${response.code}`);
+    console.log(`response.headers: ${JSON.stringify(response.headers)}`);
+    console.log(`response.body: ${JSON.stringify(response.body)}`);
     res.status(response.code).set(response.headers).send(response.body);
 }
 

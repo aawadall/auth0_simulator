@@ -11,12 +11,16 @@ const authorize = (req, res, next) => {
         console.log(`${key}: ${value}`);
     }
 
-    const response = service.authorize(req.query.client_id, 
-        req.query.redirect_uri, 
-        req.query.response_type, 
-        req.query.scope, 
-        req.query.state, 
-        req.query.nonce);
+    const response = service.authorize(client_id = req.query.client_id, 
+        redirect_uri = req.query.redirect_uri, 
+        response_type = req.query.response_type, 
+        scope = req.query.scope, 
+        state = req.query.state, 
+        nonce = req.query.nonce);
+
+    console.log('Sending response: ')
+    console.log(`response.code: ${response.code}`);
+    console.log(`response.headers: ${JSON.stringify(response.headers)}`);
 
     res.status(response.code).set(response.headers).send();
 }

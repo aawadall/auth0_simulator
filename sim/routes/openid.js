@@ -4,3 +4,5 @@ const controller = require('../controllers/openidController');
 
 // GET /openid/profile/email
 router.get('/profile/email', controller.profileEmail);
+
+module.exports = router;

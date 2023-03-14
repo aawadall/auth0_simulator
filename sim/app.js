@@ -10,10 +10,11 @@ app.use(logger('dev'));
 // Routes
 const wellKnownRouter = require('./routes/wellKnown');
 const authRouter = require('./routes/authorize');
+const openIdRouter = require('./routes/openid');
 
 app.use('/.well-known', wellKnownRouter);
 app.use('/authorize', authRouter);
-
+app.use('/openid', openIdRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

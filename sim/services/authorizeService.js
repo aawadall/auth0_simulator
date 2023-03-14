@@ -11,7 +11,7 @@
 // state: eyJyZXR1cm5UbyI6Imh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCJ9
 
 /**
- * Authorize 
+sim/routes/authorize.js * Authorize 
  * @param {*} client_id 
  * @param {*} scope 
  * @param {*} response_type 
@@ -25,7 +25,7 @@
 const authorize = (client_id, scope, response_type, redirect_uri, response_mode, nonce, state) => {
     const response = {};
 
-    
+    console.log(`got state = ${state}`);
 
     response.code = 302;
     response.headers = {
