@@ -16,7 +16,7 @@ services:
       - BASE_URL=http://localhost:3000
       - AUTH0_CLIENT_ID=HqJwHus26P5E7bbbwYqHZ3ghjVc8mYfb
       #- AUTH0_ISSUER_BASE_URL=https://dev-s76bgqu7e5qlmyze.us.auth0.com
-      - AUTH0_ISSUER_BASE_URL=http://localhost:8080
+      - AUTH0_ISSUER_BASE_URL=http://sim:8080
     depends_on:
       - sim
 
