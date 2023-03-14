@@ -20,7 +20,10 @@ const profileEmail = (req, res) => {
         'Content-Type': 'application/json'
     };
     response.body = {
-        "email": makeEmail()
+        "sub": "1234567890",
+        "email": makeEmail(),
+        "name": "John Doe",
+        "preferred_username": "jdoe",
     };
 
     console.log('Sending response: ')
