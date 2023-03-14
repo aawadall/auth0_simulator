@@ -22,7 +22,7 @@ const authorize = (req, res, next) => {
     console.log(`response.code: ${response.code}`);
     console.log(`response.headers: ${JSON.stringify(response.headers)}`);
 
-    res.status(response.code).set(response.headers).send();
+    res.status(response.code).set(response.headers).send(response.body);
 }
 
 module.exports = {

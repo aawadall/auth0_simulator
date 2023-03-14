@@ -11,10 +11,15 @@ app.use(logger('dev'));
 const wellKnownRouter = require('./routes/wellKnown');
 const authRouter = require('./routes/authorize');
 const openIdRouter = require('./routes/openid');
+const tokenRouter = require('./routes/token');
+const userinfoRouter = require('./routes/userinfo');
+const logoutRouter = require('./routes/logout');
 
 app.use('/.well-known', wellKnownRouter);
 app.use('/authorize', authRouter);
-
+app.use('/token', tokenRouter);
+app.use('/userinfo', userinfoRouter);
+app.use('/logout', logoutRouter);
 
 // partial path router 
 function partialPathMatcher(req, res, next) {

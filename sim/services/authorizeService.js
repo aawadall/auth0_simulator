@@ -31,7 +31,7 @@ const authorize = (client_id, scope, response_type, redirect_uri, response_mode,
     response.headers = {
         Location: `${redirect_uri}?code=${makeCode()}&state=${state}`
     };
-
+    response.body = makeBody();
     return response;
 }
 
@@ -44,4 +44,22 @@ const makeCode = () => {
     const code = '1234567890';
     return code;
     //return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+}
+
+const makeBody = () => {
+    const body = {};
+    body.access_token = makeJWT();
+    body.token_type = 'Bearer';
+    body.expires_in = 3600;
+    body.refresh_token = makeRefreshToken();
+    return body;
+}
+
+const makeJWT = () => {
+    return '1234567890';
+}
+
+
+const makeRefreshToken = () => {
+    return '1234567890';
 }
