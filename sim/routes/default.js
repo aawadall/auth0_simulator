@@ -1,18 +1,17 @@
 const router = require('express').Router();
-const logger = require('morgan');
 const os = require('os');
 
 // GET /.well-known/openid-configuration
 router.get('/.well-known/openid-configuration', function(req, res, next) {
-    logger(`req.method: ${req.method}`);
-    logger(`req.url: ${req.url}`);
-    logger(`req.query: ${JSON.stringify(req.query)}`);
-    logger(`req.body: ${JSON.stringify(req.body)}`);
+    console.log(`req.method: ${req.method}`);
+    console.log(`req.url: ${req.url}`);
+    console.log(`req.query: ${JSON.stringify(req.query)}`);
+    console.log(`req.body: ${JSON.stringify(req.body)}`);
 
     const host = `http://${os.hostname()}:${process.env.PORT}`;
 
-    logger(`host: ${host}`);
-    
+    console.log(`host: ${host}`);
+
     // prepare response
     const response = {
         "issuer": host,

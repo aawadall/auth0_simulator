@@ -14,15 +14,16 @@ app.use('/', defaultRouter);
 app.use(function(req, res, next) {
     const err = new Error('Not implemented yet');
     err.status = 501;
-    logger(`'NOT IMPLEMENTED YET' ${req.method} ${req.url}`)
+    
+    console.log(`'NOT IMPLEMENTED YET' ${req.method} ${req.url}`)
     // if we have query params, log them
     if (Object.keys(req.query).length > 0) {
-        logger(`'QUERY PARAMS' ${JSON.stringify(req.query)}`)
+        console.log(`'QUERY PARAMS' ${JSON.stringify(req.query)}`)
     }
 
     // if we have a body, log it
     if (Object.keys(req.body).length > 0) {
-        logger(`'BODY' ${JSON.stringify(req.body)}`)
+        console.log(`'BODY' ${JSON.stringify(req.body)}`)
     }
 
     next(err);
