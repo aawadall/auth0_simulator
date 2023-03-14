@@ -22,7 +22,7 @@ sim/routes/authorize.js * Authorize
  * @returns {*} returns a response object
  */
 
-const authorize = (client_id, scope, response_type, redirect_uri, response_mode, nonce, state) => {
+const authorize = (client_id, scope, response_type, redirect_uri, response_mode, state, nonce) => {
     const response = {};
 
     console.log(`got state = ${state}`);
