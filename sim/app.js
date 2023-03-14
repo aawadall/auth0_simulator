@@ -6,21 +6,6 @@ const app = express();
 
 app.use(logger('dev'));
 
-// middleware to log exactly what we're getting
-app.use(function(req, res, next) {
-    console.log(`'REQUEST' ${req.method} ${req.url}`)
-    // if we have query params, log them
-    if (Object.keys(req.query).length > 0) {
-        console.log(`'QUERY PARAMS' ${JSON.stringify(req.query)}`)
-    }
-
-    // if we have a body, log it
-    if (Object.keys(req.body).length > 0) {
-        console.log(`'BODY' ${JSON.stringify(req.body)}`)
-    }
-
-    next();
-});
 
 // Routes
 const wellKnownRouter = require('./routes/wellKnown');
@@ -40,12 +25,12 @@ app.use(function(req, res, next) {
     if (Object.keys(req.query).length > 0) {
         console.log(`'QUERY PARAMS' ${JSON.stringify(req.query)}`)
     }
-
+    
     // if we have a body, log it
     if (Object.keys(req.body).length > 0) {
         console.log(`'BODY' ${JSON.stringify(req.body)}`)
     }
-
+    
     next(err);
 });
 
@@ -63,6 +48,22 @@ app.use(function(err, req, res, next) {
     });
 });
 
+
+// middleware to log exactly what we're getting
+app.use(function(req, res, next) {
+    console.log(`'REQUEST' ${req.method} ${req.url}`)
+    // if we have query params, log them
+    if (Object.keys(req.query).length > 0) {
+        console.log(`'QUERY PARAMS' ${JSON.stringify(req.query)}`)
+    }
+
+    // if we have a body, log it
+    if (Object.keys(req.body).length > 0) {
+        console.log(`'BODY' ${JSON.stringify(req.body)}`)
+    }
+
+    next();
+});
 
 const port = process.env.PORT || 3000;
 
