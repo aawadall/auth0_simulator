@@ -1,0 +1,15 @@
+{
+  "name": "sim",
+  "version": "0.1.0",
+  "description": "Auth0 Simulator, starting as a logging api",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  }
+}
