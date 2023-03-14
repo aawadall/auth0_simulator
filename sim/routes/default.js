@@ -10,6 +10,9 @@ router.get('/.well-known/openid-configuration', function(req, res, next) {
     logger(`req.body: ${JSON.stringify(req.body)}`);
 
     const host = `http://${os.hostname()}:${process.env.PORT}`;
+
+    logger(`host: ${host}`);
+    
     // prepare response
     const response = {
         "issuer": host,
