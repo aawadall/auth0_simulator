@@ -7,9 +7,9 @@ const app = express();
 app.use(logger('dev'));
 
 // Routes
-const defaultRouter = require('./routes/default');
+const wellKnownRouter = require('./routes/wellKnown');
 
-app.use('/', defaultRouter);
+app.use('/.well-known', wellKnownRouter);
 
 app.use(function(req, res, next) {
     const err = new Error('Not implemented yet');

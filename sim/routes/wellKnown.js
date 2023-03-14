@@ -1,14 +1,13 @@
 const router = require('express').Router();
-const os = require('os');
 
 // GET /.well-known/openid-configuration
-router.get('/.well-known/openid-configuration', function(req, res, next) {
+router.get('/openid-configuration', function(req, res, next) {
     console.log(`req.method: ${req.method}`);
     console.log(`req.url: ${req.url}`);
     console.log(`req.query: ${JSON.stringify(req.query)}`);
     console.log(`req.body: ${JSON.stringify(req.body)}`);
 
-    const host = `http://${os.hostname()}:${process.env.PORT}`;
+    const host = `http://${process.env.HOST_NAME}:${process.env.PORT}`;
 
     console.log(`host: ${host}`);
 
