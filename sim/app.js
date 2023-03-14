@@ -22,12 +22,12 @@ app.use(function(req, res, next) {
     
     console.log(`'NOT IMPLEMENTED YET' ${req.method} ${req.url}`)
     // if we have query params, log them
-    if (Object.keys(req.query).length > 0) {
+    if (req.query) {
         console.log(`'QUERY PARAMS' ${JSON.stringify(req.query)}`)
     }
     
     // if we have a body, log it
-    if (Object.keys(req.body).length > 0) {
+    if (req.body) {
         console.log(`'BODY' ${JSON.stringify(req.body)}`)
     }
     
@@ -38,8 +38,14 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
     console.log(`'ERROR' ${err.message}`)
     console.log(`METHOD: ${req.method} URL: ${req.url}`);
-    console.log(`QUERY: ${JSON.stringify(req.query)}`);
-    console.log(`BODY: ${JSON.stringify(req.body)}`);
+
+    if (req.query) {
+        console.log(`QUERY: ${JSON.stringify(req.query)}`)
+    }
+
+    if (req.body) {
+        console.log(`BODY: ${JSON.stringify(req.body)}`)
+    }
     // set locals, only providing error in development
     res.status(err.status || 500);
     res.json({
