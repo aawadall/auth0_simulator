@@ -13,7 +13,7 @@ const profileEmail = (req, res) => {
         console.log(`'BODY' ${JSON.stringify(req.body)}`)
     }
 
-    
+
     const response = {};
     response.code = 200;
     response.headers = {
@@ -35,5 +35,7 @@ module.exports = {
 }
 
 const makeEmail = () => {
-    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + "@gmail.com";
+    // for now return fixed email 
+    return "someone@email.com";
+    //return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + "@gmail.com";
 }

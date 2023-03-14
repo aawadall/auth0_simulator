@@ -40,5 +40,8 @@ module.exports = {
 }
 
 const makeCode = () => {
-    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    // for now, make a static code
+    const code = '1234567890';
+    return code;
+    //return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 }
