@@ -1,6 +1,5 @@
 // authorization service 
 
-
 // Example request:
 // client_id: HqJwHus26P5E7bbbwYqHZ3ghjVc8mYfb
 // scope: openid profile email
@@ -35,9 +34,7 @@ const authorize = (client_id, scope, response_type, redirect_uri, response_mode,
     return response;
 }
 
-module.exports = {
-    authorize
-}
+
 
 const makeCode = () => {
     // for now, make a static code
@@ -62,4 +59,10 @@ const makeJWT = () => {
 
 const makeRefreshToken = () => {
     return '1234567890';
+}
+
+
+
+module.exports = {
+    authorize
 }
