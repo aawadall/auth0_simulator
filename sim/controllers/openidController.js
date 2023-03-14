@@ -1,6 +1,19 @@
 // openid controller 
 
 const profileEmail = (req, res) => {
+
+    console.log(`req.method: ${req.method}`);
+    console.log(`req.url: ${req.url}`);
+
+    if (req.query) {
+        console.log(`'QUERY PARAMS' ${JSON.stringify(req.query)}`)
+    }
+
+    if (req.body) {
+        console.log(`'BODY' ${JSON.stringify(req.body)}`)
+    }
+
+    
     const response = {};
     response.code = 200;
     response.headers = {

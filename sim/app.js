@@ -14,7 +14,17 @@ const openIdRouter = require('./routes/openid');
 
 app.use('/.well-known', wellKnownRouter);
 app.use('/authorize', authRouter);
-app.use('/openid', openIdRouter);
+
+
+// partial path router 
+function partialPathMatcher(req, res, next) {
+    if (req.path.startsWith('/openid')) {
+        return openIdRouter(req, res, next);
+    } 
+    return next();
+}
+
+app.use(partialPathMatcher);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
