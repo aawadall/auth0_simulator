@@ -1,8 +1,7 @@
 // openid service 
 
 const profileEmail = () => {
-    const response = {};
-    response.user = {
+    const response = {
         "given_name": "John",
         "family_name": "Doe",
         "name": "John Doe",
@@ -13,7 +12,7 @@ const profileEmail = () => {
         "sid": "1234567890",
         "picture": userPicture(),
     };
-
+    return response;
 }
 
 module.exports = {

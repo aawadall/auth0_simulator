@@ -1,10 +1,12 @@
 // openid controller 
+const service = require('../services/openIdService');
 
 const profileEmail = (req, res) => {
-
+    console.log('profileEmail route');
+    console.log(`req.headers: ${JSON.stringify(req.headers)}`);
     console.log(`req.method: ${req.method}`);
     console.log(`req.url: ${req.url}`);
-
+    console.log("=====================================");
     if (req.query) {
         console.log(`'QUERY PARAMS' ${JSON.stringify(req.query)}`)
     }
@@ -19,11 +21,11 @@ const profileEmail = (req, res) => {
     response.headers = {
         'Content-Type': 'application/json'
     };
+
+    const user = service.profileEmail();
+    console.log(`user: ${JSON.stringify(user)}`);
     response.body = {
-        "sub": "1234567890",
-        "email": makeEmail(),
-        "name": "John Doe",
-        "preferred_username": "jdoe",
+        "user": user
     };
 
     console.log('Sending response: ')

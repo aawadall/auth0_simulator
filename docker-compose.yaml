@@ -1,6 +1,9 @@
 version: '3.7'
 services:
   sim:
+    # image: wso2is
+    # ports:
+    #   - 9443:9443
     build: ./sim
     ports:
       - 8080:8080

@@ -1,4 +1,4 @@
-const jwt = require('express-jwt');
+const {expressjwt: jwt} = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 
 
@@ -6,6 +6,7 @@ const authConfig = {
     domain: `http://${process.env.HOST_NAME}:${process.env.PORT}`,
     audience: `http://${process.env.HOST_NAME}:${process.env.PORT}`,
 };
+
 
 const checkJwt = jwt({
     // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint.
