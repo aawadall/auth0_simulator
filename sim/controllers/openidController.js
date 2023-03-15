@@ -1,5 +1,6 @@
 // openid controller 
 const service = require('../services/openIdService');
+const axios = require('axios');
 
 const profileEmail = (req, res) => {
     console.log('profileEmail route');
@@ -32,7 +33,19 @@ const profileEmail = (req, res) => {
     console.log(`response.code: ${response.code}`);
     console.log(`response.headers: ${JSON.stringify(response.headers)}`);
     console.log(`response.body: ${JSON.stringify(response.body)}`);
-    res.status(response.code).set(response.headers).send(response.body);
+    // axios({
+    //     url: 'client:3000/callback',
+    //     method: 'post',
+    //     data: response.body,
+    // }).then((response) => {
+    //     console.log(`Status code: ${response.status}`);
+    //     console.log(`Status text: ${response.statusText}`);
+    //     console.log(`Response headers: ${response.headers}`);
+    //     console.log(`Response data: ${response.data}`);
+    // }, (error) => {
+    //     console.log(error);
+    // });
+    res.status(response.code).set(response.headers).send();
 }
 
 module.exports = {

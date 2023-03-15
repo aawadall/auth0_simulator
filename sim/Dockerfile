@@ -12,4 +12,9 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+
+# FOR DEBUGGING
+# install curl 
+RUN apk add --no-cache curl
+
 ENTRYPOINT [ "npm", "start" ]

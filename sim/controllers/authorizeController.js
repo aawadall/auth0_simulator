@@ -1,5 +1,6 @@
 // authorization controller 
 const service = require('../services/authorizeService');
+const axios = require('axios');
 
 const authorize = (req, res, next) => {
     console.log(`req.method: ${req.method}`);
@@ -21,8 +22,26 @@ const authorize = (req, res, next) => {
     console.log('Sending response: ')
     console.log(`response.code: ${response.code}`);
     console.log(`response.headers: ${JSON.stringify(response.headers)}`);
+    const callbackUrl = req.query.redirect_uri.replace('http://localhost', 'client');
 
-    res.status(response.code).set(response.headers).send(response.body);
+    console.log(`callbackUrl: ${callbackUrl}`);
+
+    // send POST to callback URL
+    axios({
+        url: callbackUrl,
+        method: 'post',
+        data: response.body,
+    }).then((response) => {
+        console.log(`Status code: ${response.status}`);
+        console.log(`Status text: ${response.statusText}`);
+        console.log(`Response headers: ${response.headers}`);
+        console.log(`Response data: ${response.data}`);
+    }, (error) => {
+        console.log(error);
+    });
+    
+    res.status(response.code).set(response.headers).send();
+    
 }
 
 module.exports = {
