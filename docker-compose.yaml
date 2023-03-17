@@ -12,9 +12,9 @@ services:
     environment:
       - PORT=8080
       - HOST_NAME=localhost
-      - ASPNETCORE_URLS="https://+;http://+" 
+      - ASPNETCORE_URLS=https://+;http://+
       - ASPNETCORE_HTTPS_PORT=8001 
-      - ASPNETCORE_Kestrel__Certificates__Default__Password="${CERT_DEFAULT_PASSWORD}" 
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=${CERT_DEFAULT_PASSWORD}
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx 
       
   client:

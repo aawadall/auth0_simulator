@@ -1,7 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // configure ports 
-builder.WebHost.UseUrls("http://localhost:5000", "https://localhost:5001");
+// builder.WebHost.UseUrls("http://localhost:5000", "https://localhost:5001");
 
 // Add services to the container.
 builder.Services.AddControllers();
