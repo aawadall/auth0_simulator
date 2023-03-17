@@ -5,8 +5,7 @@ services:
     # ports:
     #   - 9443:9443
     build: ./dotnet_sim
-    # temporarily run a script 
-    command: ls -ltrR /app
+    
     ports:
       - 8080:8080
       - 5000:5000
