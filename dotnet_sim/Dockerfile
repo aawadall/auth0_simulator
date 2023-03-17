@@ -14,7 +14,7 @@ RUN dotnet restore
 RUN dotnet publish -c Release -o ./out
 
 # Base Image dotnet core 7 runtime for running the application
-FROM mcr.microsoft.com/dotnet/runtime:7.0-alpine
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
 
 # Set the working directory
 WORKDIR /app
@@ -23,4 +23,4 @@ WORKDIR /app
 COPY --from=build /src/out .
 
 # Run the application
-CMD ["web"]
+CMD ["dotnet", "web.dll"]

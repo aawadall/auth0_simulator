@@ -5,7 +5,8 @@ services:
     # ports:
     #   - 9443:9443
     build: ./dotnet_sim
-    
+    # inspect the container after it starts
+    # command: /bin/sh -c "dotnet --info && dotnet web.dll"
     ports:
       - 8080:8080
       - 5000:5000
