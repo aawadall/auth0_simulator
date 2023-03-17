@@ -4,9 +4,12 @@ services:
     # image: wso2is
     # ports:
     #   - 9443:9443
-    build: ./sim
+    build: ./dotnet_sim
     ports:
       - 8080:8080
+      - 5000:5000
+      - 5001:5001
+
     environment:
       - PORT=8080
       - HOST_NAME=localhost
@@ -19,7 +22,7 @@ services:
       - BASE_URL=http://localhost:3000
       - AUTH0_CLIENT_ID=HqJwHus26P5E7bbbwYqHZ3ghjVc8mYfb
       #- AUTH0_ISSUER_BASE_URL=https://dev-s76bgqu7e5qlmyze.us.auth0.com
-      - AUTH0_ISSUER_BASE_URL=http://sim:8080
+      - AUTH0_ISSUER_BASE_URL=https://sim:5001
     depends_on:
       - sim
 
