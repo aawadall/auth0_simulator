@@ -1,7 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// configure ports 
+builder.WebHost.UseUrls("http://localhost:5000", "https://localhost:5001");
 
+// Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

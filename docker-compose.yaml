@@ -5,16 +5,18 @@ services:
     # ports:
     #   - 9443:9443
     build: ./dotnet_sim
-    # inspect the container after it starts
-    # command: /bin/sh -c "dotnet --info && dotnet web.dll"
     ports:
-      - 8080:8080
-      - 5000:5000
-      - 5001:5001
+      - 8000:80
+      - 8001:443
 
     environment:
       - PORT=8080
       - HOST_NAME=localhost
+      - ASPNETCORE_URLS="https://+;http://+" 
+      - ASPNETCORE_HTTPS_PORT=8001 
+      - ASPNETCORE_Kestrel__Certificates__Default__Password="${CERT_DEFAULT_PASSWORD}" 
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx 
+      
   client:
     build: ./client
     ports:
@@ -31,4 +33,5 @@ services:
 secrets:
   AUTH0_CLIENT_SECRET:
     file: ./client/.env
-    
+  CERT_DEFAULT_PASSWORD:
+    file: ./dotnet_sim/.env

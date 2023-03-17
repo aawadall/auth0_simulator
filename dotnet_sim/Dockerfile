@@ -13,6 +13,7 @@ RUN dotnet restore
 # Publish exe file
 RUN dotnet publish -c Release -o ./out
 
+
 # Base Image dotnet core 7 runtime for running the application
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
 
@@ -21,6 +22,7 @@ WORKDIR /app
 
 # Copy the published code
 COPY --from=build /src/out .
+
 
 # Run the application
 CMD ["dotnet", "web.dll"]
