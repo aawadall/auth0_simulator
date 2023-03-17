@@ -23,4 +23,4 @@ WORKDIR /app
 COPY --from=build /src/out .
 
 # Run the application
-CMD ["dotnet", "dotnet_sim.dll"]
+CMD ["dotnet", "web.dll"]
